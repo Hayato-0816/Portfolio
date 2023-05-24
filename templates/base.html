@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="../static/css/images/Logo.png" alt="">
+            <h1>MACHiDA HAYATO</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <div id="loading">
+        <p>Hello</p>
+    </div> -->
+    <section id="hero">
+        <div id="scroll_top">
+            <span>Scroll</span>
+            <div class="scroll"></div>
+        </div>
+        <div class="hero-content">
+            <h2>MACHiDA HAYATO</h2>
+            <p>Portfolio Site</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <h2>About</h2>
+            <p>ここに自己紹介のテキストを入力します。</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            {% for item in items %}
+            <div class="portfolio-item">
+                <div class="portfolio-img" style="background-attachment: fixed; background-image: url(/{{item.image_url}});"></div>
+                <div class="portfolio-text">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <form id="contact-form">
+                <input class="form_c" type="text" name="name" placeholder="お名前" required>
+                <input class="form_c" type="email" name="email" placeholder="メールアドレス" required>
+                <textarea name="message" placeholder="メッセージ" required></textarea>
+                <button class="form_c" type="submit">送信</button>
+            </form>
+        </div>
+    </section>
+    <div id="page_top"><a href="#"><p>Page Top</p></a></div>
+    <footer>
+        <p>© 2023 ポートフォリオ</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

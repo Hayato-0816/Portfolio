@@ -1,0 +1,353 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #eeeeee;
+}
+
+@font-face { 
+    font-family: "timemachine wa"; 
+    src: url("/static/font/timemachine-wa.ttf") format("truetype")
+}
+
+.container{
+    width: 75vw;
+    position: absolute;
+}
+
+a{
+    text-decoration: none;
+    font-weight: 100;
+}
+
+/* Load */
+#Loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #0000ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+h2{
+    font-size: 40px;
+}
+
+/* Header */
+header {
+    width: 13.8vw;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    left: 100px;
+    flex-direction: column;
+    align-items: left;
+    position: fixed;
+    z-index: 100;
+}
+
+header div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    top: 90px;
+}
+
+header img{
+    width: 60px;
+    height: auto;
+}
+
+h1{
+    font-family: "timemachine wa";
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+nav{
+    height: 252px;
+    position: relative;
+    top: 300px;
+}
+
+nav ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav li a:hover {
+    animation: nav_animation 0.1s ease forwards;
+}
+
+@keyframes nav_animation{
+    0%{
+        color: #000000;
+    }
+    100%{
+        color: #d12828;
+    }
+}
+
+/* Hero Section */
+#scroll_top{
+    position: absolute;
+    bottom: 0;
+    right: 75vw;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#scroll_top span{
+    font-family: "timemachine wa"; 
+    font-size: 12px;
+    color: #696969;
+    display: inline-block;
+    transform-origin: right bottom;
+    transform: rotate(-90deg);
+}
+
+.scroll{
+    background-color: #ffffff;
+    height: 300px;
+    width: 1px;
+}
+
+.scroll::after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: #d69393;
+    transform-origin: center top;
+    animation: scroll_animation 1.3s ease infinite;
+}
+
+@keyframes scroll_animation{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+#hero {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+
+.hero-content {
+    width: 73vw;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    position: absolute;
+    top: 4vh;
+    right: 2vw;
+    background-image: url("images/sky_00015.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    border-radius: 10px 10px 10px 300px;
+    transition: .3s ease-in-out;
+}
+
+.hero-content:hover{
+    filter: grayscale(0);
+}
+
+.hero-content h2 {
+    text-align: right;
+    font-size: 120px;
+    font-weight: 700;
+    color: #f0f0f0;
+    position: absolute;
+    bottom: 70px;
+    z-index: 20;
+}
+
+.hero-content p {
+    text-align: center;
+    font-size: 80px;
+    color: #f0f0f0;
+    margin-top: 0px;
+    position: absolute;
+    bottom: 0;
+    z-index: 20;
+}
+
+/* about Section */
+#about {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    margin-top: 100px;
+}
+
+.about-content {
+    width: 75vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    position: absolute;
+    right: 0;
+}
+
+.about-content h2 {
+    text-align: center;
+}
+
+.about-content p {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* projects */
+#projects{
+    width: 100%;
+    position: relative;
+}
+
+ .container{
+    display: flex;
+    flex-direction: column;
+}
+
+#projects h2{
+    margin-bottom: 50px;
+}
+
+.portfolio-item{
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    filter: grayscale(100%);
+    transition: .1s ease-in-out;
+}
+
+.portfolio-item:hover{
+    filter: grayscale(0);
+}
+
+.portfolio-img{
+    width: 60%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.portfolio-text{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+#projects .container{
+    right: 0;
+}
+
+/* Contact Section */
+#contact{
+    width: 100%;
+    height: 70vh;
+    margin-top: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #696969;
+}
+
+#contact h2{
+    color: #f0f0f0;
+}
+
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+#contact-form input,#contact-form textarea,#contact-form button{
+    margin-top: 30px;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+}
+
+.form_c{
+    height: 40px;
+}
+
+#contact .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+    height: 20vh;
+}
+
+#page_top{
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    border-radius: 10%;
+    z-index: 100;
+}
+
+#page_top a{
+    width: 100%;
+    height: 100%;
+    color: #696969;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 120px;
+}
