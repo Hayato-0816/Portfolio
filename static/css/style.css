@@ -7,28 +7,42 @@
 
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Yu Gothic';
     line-height: 1.6;
-    background-color: #eeeeee;
+    background-color: #f0f0f0;
+    letter-spacing: 2px;
 }
 
-@font-face { 
-    font-family: "timemachine wa"; 
-    src: url("/static/font/timemachine-wa.ttf") format("truetype")
+@font-face {
+    font-family: "timemachine wa";
+    src: url("/static/font/timemachine-wa.ttf") format("truetype");
 }
 
-.container{
-    width: 75vw;
+@font-face {
+    font-family: "Abel";
+    src: url("/static/font/Abel-Regular.ttf") format("truetype");
+}
+
+h2,
+h3,
+p,
+input,
+textarea {
+    font-family: "Abel";
+}
+
+.container {
+    width: 80vw;
     position: absolute;
 }
 
-a{
+a {
     text-decoration: none;
     font-weight: 100;
 }
 
 /* Load */
-#Loading{
+/* #Loading{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -37,46 +51,54 @@ a{
     justify-content: center;
     align-items: center;
     z-index: 9999;
-}
+} */
 
-h2{
-    font-size: 40px;
+h2 {
+    font-size: 60px;
+    font-family: "Abel";
+    font-weight: 300;
 }
 
 /* Header */
 header {
-    width: 13.8vw;
+    width: 19vw;
     height: 100vh;
     display: flex;
     top: 0;
-    left: 100px;
     flex-direction: column;
     align-items: left;
     position: fixed;
     z-index: 100;
 }
 
-header div{
+header .head_cont{
+    width: 11vw;
+    height: 100%;
+    position: absolute;
+    left: 120px;
+}
+
+header .head_logo {
     display: flex;
     flex-direction: column;
     align-items: start;
     position: relative;
-    top: 90px;
+    top: 9vh;
 }
 
-header img{
+header img {
     width: 60px;
-    height: auto;
+    height: 50px;
 }
 
-h1{
+h1 {
     font-family: "timemachine wa";
     font-size: 30px;
     font-weight: 500;
     letter-spacing: 5px;
 }
 
-nav{
+nav {
     height: 252px;
     position: relative;
     top: 300px;
@@ -94,33 +116,34 @@ nav ul li a {
     color: #000000;
     text-decoration: none;
     font-size: 18px;
+    font-family: "Abel";
 }
 
 nav li a:hover {
     animation: nav_animation 0.1s ease forwards;
 }
 
-@keyframes nav_animation{
-    0%{
+@keyframes nav_animation {
+    0% {
         color: #000000;
     }
-    100%{
+    100% {
         color: #d12828;
     }
 }
 
 /* Hero Section */
-#scroll_top{
+#scroll_top {
     position: absolute;
     bottom: 0;
-    right: 75vw;
+    right: 80vw;
     display: flex;
     flex-direction: column;
     align-items: end;
 }
 
-#scroll_top span{
-    font-family: "timemachine wa"; 
+#scroll_top span {
+    font-family: "timemachine wa";
     font-size: 12px;
     color: #696969;
     display: inline-block;
@@ -128,27 +151,27 @@ nav li a:hover {
     transform: rotate(-90deg);
 }
 
-.scroll{
+.scroll {
     background-color: #ffffff;
-    height: 300px;
+    height: 400px;
     width: 1px;
 }
 
-.scroll::after{
+.scroll::after {
     content: "";
     display: block;
     width: 1px;
     height: 100%;
-    background: #d69393;
+    background: #d12828;
     transform-origin: center top;
     animation: scroll_animation 1.3s ease infinite;
 }
 
-@keyframes scroll_animation{
-    0%{
+@keyframes scroll_animation {
+    0% {
         transform: scale(0);
     }
-    100%{
+    100% {
         transform: scale(1);
     }
 }
@@ -174,18 +197,20 @@ nav li a:hover {
     background-repeat: no-repeat;
     filter: grayscale(100%);
     border-radius: 10px 10px 10px 300px;
-    transition: .3s ease-in-out;
+    transition: 0.8s ease-in-out;
+    color: #000000;
 }
 
-.hero-content:hover{
+.hero-content:hover {
     filter: grayscale(0);
+    color: #f0f0f0;
 }
 
 .hero-content h2 {
     text-align: right;
-    font-size: 120px;
+    letter-spacing: 10px;
+    font-size: 140px;
     font-weight: 700;
-    color: #f0f0f0;
     position: absolute;
     bottom: 70px;
     z-index: 20;
@@ -193,8 +218,8 @@ nav li a:hover {
 
 .hero-content p {
     text-align: center;
-    font-size: 80px;
-    color: #f0f0f0;
+    font-size: 70px;
+    font-weight: 200;
     margin-top: 0px;
     position: absolute;
     bottom: 0;
@@ -210,7 +235,7 @@ nav li a:hover {
 }
 
 .about-content {
-    width: 75vw;
+    width: 80vw;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -224,105 +249,125 @@ nav li a:hover {
 }
 
 .about-content p {
-    text-align: center;
+    text-align: left;
     margin-top: 40px;
 }
 
 /* projects */
-#projects{
+#projects {
     width: 100%;
+    height: 1000px;
     position: relative;
 }
 
- .container{
+#projects .container {
     display: flex;
     flex-direction: column;
 }
 
-#projects h2{
+#projects h2 {
     margin-bottom: 50px;
 }
 
-.portfolio-item{
-    height: 50vh;
-    display: flex;
-    justify-content: space-between;
-    filter: grayscale(100%);
-    transition: .1s ease-in-out;
-}
-
-.portfolio-item:hover{
-    filter: grayscale(0);
-}
-
-.portfolio-img{
-    width: 60%;
-    height: 100%;
+.portfolio-item {
+    width: 97%;
+    height: 60vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
+    filter: grayscale(100%);
+    transition: 0.1s ease-in-out;
 }
 
-.portfolio-text{
-    width: 35%;
+.portfolio-item:hover {
+    filter: grayscale(0);
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    color: #f0f0f0;
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: end;
+}
+
+.portfolio-img:hover {
+    opacity: 1;
+    background-color: #00000060;
+}
+
+.portfolio-text {
+    width: 20%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
+    position: absolute;
+    right: 250px;
 }
 
-#projects .container{
+h3{
+    font-size: 30px;
+}
+
+#projects .container {
     right: 0;
 }
 
 /* Contact Section */
-#contact{
+#contact {
     width: 100%;
     height: 70vh;
     margin-top: 200px;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #696969;
+    justify-content: right;
 }
 
-#contact h2{
+#contact .container {
+    height: 100%;
+    background-color: #696969;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact h2 {
     color: #f0f0f0;
 }
 
-#contact-form{
+#contact-form {
     display: flex;
     flex-direction: column;
     width: 30vw;
 }
 
-#contact-form input,#contact-form textarea,#contact-form button{
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
     margin-top: 30px;
-    padding: 5px 10px 5px 10px;
+    padding: 10px;
     border: none;
     background-color: #f0f0f0;
     border-radius: 3px;
 }
 
-.form_c{
+.form_c {
     height: 40px;
 }
 
-#contact .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-textarea{
+textarea {
     resize: none;
     width: 100%;
     height: 20vh;
 }
 
-#page_top{
+#page_top {
     display: none;
     position: fixed;
     bottom: 100px;
@@ -334,7 +379,7 @@ textarea{
     z-index: 100;
 }
 
-#page_top a{
+#page_top a {
     width: 100%;
     height: 100%;
     color: #696969;
@@ -347,7 +392,13 @@ textarea{
 footer {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     position: relative;
     height: 120px;
+}
+
+footer p{
+    position: absolute;
+    left: 120px;
+    font-size: 12px;
 }

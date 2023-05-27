@@ -1,0 +1,203 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Yu Gothic';
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    letter-spacing: 2px;
+}
+
+@font-face {
+    font-family: "timemachine wa";
+    src: url("/static/font/timemachine-wa.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Abel";
+    src: url("/static/font/Abel-Regular.ttf") format("truetype");
+}
+
+h2,
+h3,
+p,
+input,
+textarea {
+    font-family: "Abel";
+}
+
+.container {
+    width: 80vw;
+    position: absolute;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 100;
+}
+
+/* Load */
+/* #Loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #0000ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+} */
+
+h2 {
+    font-size: 60px;
+    font-family: "Abel";
+    font-weight: 300;
+}
+
+/* Header */
+header {
+    width: 19vw;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    flex-direction: column;
+    align-items: left;
+    position: fixed;
+    z-index: 100;
+}
+
+header .head_cont{
+    width: 11vw;
+    height: 100%;
+    position: absolute;
+    left: 120px;
+}
+
+header .head_logo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    top: 9vh;
+}
+
+header img {
+    width: 60px;
+    height: 50px;
+}
+
+h1 {
+    font-family: "timemachine wa";
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+nav {
+    height: 252px;
+    position: relative;
+    top: 300px;
+}
+
+nav ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Abel";
+}
+
+nav li a:hover {
+    animation: nav_animation 0.1s ease forwards;
+}
+
+@keyframes nav_animation {
+    0% {
+        color: #000000;
+    }
+    100% {
+        color: #d12828;
+    }
+}
+
+/* projects */
+#projects {
+    width: 100%;
+    height: 1000px;
+    margin-top: 80px;
+    position: relative;
+}
+
+#projects .container {
+    display: flex;
+    flex-direction: column;
+}
+
+#projects h2 {
+    margin-bottom: 50px;
+}
+
+.portfolio-item {
+    width: 97%;
+    height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    transition: 0.1s ease-in-out;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    color: #f0f0f0;
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: end;
+}
+
+.portfolio-text {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-top: 80px;
+}
+
+h3{
+    font-size: 30px;
+}
+
+#projects .container {
+    right: 0;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    position: relative;
+    height: 120px;
+}
+
+footer p{
+    position: absolute;
+    left: 120px;
+    font-size: 12px;
+}

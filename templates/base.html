@@ -9,18 +9,20 @@
 </head>
 <body>
     <header>
-        <div>
-            <img src="../static/css/images/Logo.png" alt="">
-            <h1>MACHiDA HAYATO</h1>
+        <div class="head_cont">
+            <div class="head_logo">
+                <img src="../static/css/images/Logo.png" alt="">
+                <h1>MACHiDA HAYATO</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
     <!-- <div id="loading">
         <p>Hello</p>
@@ -31,7 +33,7 @@
             <div class="scroll"></div>
         </div>
         <div class="hero-content">
-            <h2>MACHiDA HAYATO</h2>
+            <h2>>"Hello World!"</h2>
             <p>Portfolio Site</p>
         </div>
     </section>
@@ -39,7 +41,10 @@
     <section id="about">
         <div class="about-content">
             <h2>About</h2>
-            <p>ここに自己紹介のテキストを入力します。</p>
+            <p>
+                皆さん、初めまして<br>
+                町田 隼飛と申します！
+            </p>
         </div>
     </section>
 
@@ -47,12 +52,13 @@
         <div class="container">
             <h2>Projects</h2>
             {% for item in items %}
-            <div class="portfolio-item">
-                <div class="portfolio-img" style="background-attachment: fixed; background-image: url(/{{item.image_url}});"></div>
-                <div class="portfolio-text">
-                    <h3>{{ item.title }}</h3>
-                    <p>{{ item.description }}</p>
-                </div>
+            <div class="portfolio-item" style="background-attachment: fixed; background-image: url(/{{item.image_url}});">
+                <a class="portfolio-img" href="{% url 'project' item.pk %}">
+                    <div class="portfolio-text">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </a>
             </div>
             {% endfor %}
         </div>
@@ -60,8 +66,9 @@
 
     <section id="contact">
         <div class="container">
-            <h2>お問い合わせ</h2>
-            <form id="contact-form">
+            <h2>Contact</h2>
+            <form method="post" id="contact-form">
+                {% csrf_token %}
                 <input class="form_c" type="text" name="name" placeholder="お名前" required>
                 <input class="form_c" type="email" name="email" placeholder="メールアドレス" required>
                 <textarea name="message" placeholder="メッセージ" required></textarea>

@@ -118,3 +118,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# メール設定
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # メールホストを設定
+EMAIL_PORT = 587  # メールポートを設定
+EMAIL_HOST_USER = 'm8810.work.0119@gmail.com'  # 送信元メールアドレスを設定
+EMAIL_HOST_PASSWORD = 'zjwmpqcvzgvbfjcm'  # 送信元メールアドレスのパスワードを設定
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

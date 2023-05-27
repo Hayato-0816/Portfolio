@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/project.css' %}">
+</head>
+<body>
+    <header>
+        <div class="head_cont">
+            <div class="head_logo">
+                <img src="../../static/css/images/Logo.png" alt="">
+                <h1>MACHiDA HAYATO</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../top/#hero">Home</a></li>
+                    <li><a href="../../top/#about">About</a></li>
+                    <li><a href="../../top/#projects">Projects</a></li>
+                    <li><a href="../../top/#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="portfolio-item" style="background-attachment: fixed; background-image: url(/{{item.image_url}});">
+            </div>
+            <div class="portfolio-text">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
