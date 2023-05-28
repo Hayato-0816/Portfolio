@@ -25,15 +25,15 @@ def contact_form_view(request):
             contact_message = models.ContactMessage(name=name, company=company, email=email, message=message)
             contact_message.save()
 
-            # send_mail(
-            #     'New contact message: '+ contact_message.name,
-            #     'company:\n' + contact_message.company + "\n\n" +
-            #     'email-address:\n' + contact_message.email + "\n\n" +
-            #     'message:\n' + contact_message.message,
-            #     'm8810.work.0119@gmail.com',  # 送信元メールアドレス
-            #     ['m8810.gt.0119@gmail.com'],  # 管理者のメールアドレス
-            #     fail_silently=False,
-            # )
+            send_mail(
+                'New contact message: '+ contact_message.name,
+                'company:\n' + contact_message.company + "\n\n" +
+                'email-address:\n' + contact_message.email + "\n\n" +
+                'message:\n' + contact_message.message,
+                'm8810.work.0119@gmail.com',  # 送信元メールアドレス
+                ['m8810.gt.0119@gmail.com'],  # 管理者のメールアドレス
+                fail_silently=False,
+            )
         return render(request, 'contact_success.html', {'form': form, 'success': True})
     else:
         form = ContactForm()
