@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="hero">
+    <div id="scroll_top">
+        <span>Scroll</span>
+        <div class="scroll"></div>
+    </div>
+    <div class="hero-content">
+        <h2>>"Hello World!"</h2>
+        <p>Portfolio Site</p>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-content">
+        <h2>About</h2>
+        <p>
+            皆さん、初めまして<br>
+            Machida Hayatoと申します。<br>
+            少しずつですが、更新していければと思っております。<br>
+            暖かい目で見守ってくださると幸いです。
+        </p>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h2>Projects</h2>
+        {% for item in items %}
+        <div class="portfolio-item" style="background-attachment: fixed; background-image: url(/{{item.image_url}});">
+            <a class="portfolio-img" href="{% url 'project' item.pk %}">
+                <div class="portfolio-text">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description | linebreaks }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<div id="page_top"><a href="#"><p>Page Top</p></a></div>
+
+{% endblock content %}

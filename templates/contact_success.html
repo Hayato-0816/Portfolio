@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        {% if success %}
+            <p class="success-message">
+                送信が成功しました。<br>
+                お問い合わせいただき、ありがとうございました。
+            </p>
+        {% endif %}
+        <form id="contact-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="form_c" type="submit">送信</button>
+        </form>
+    </div>
+</section>
+{% endblock content %}
