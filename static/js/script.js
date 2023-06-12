@@ -56,6 +56,11 @@ $(function() {
             $("#loading").delay(4000).fadeOut('slow'); // ローディング要素をフェードアウト
             $("#loading p").delay(4000).fadeOut('slow'); // ローディング要素内の 'p' 要素をフェードアウト
 
+            setTimeout(function() {
+                $(".hero-content").css("filter", "grayscale(0)");
+                $(".hero-content").css("color", "#f0f0f0");
+            }, 5000);
+
             // セッションストレージにフラグをセット
             sessionStorage.setItem(sessionKey, true);
         });
@@ -63,6 +68,11 @@ $(function() {
         // セッションストレージにフラグがある場合は非表示にする
         $("#loading").css("display", "none");
         $("#loading p").css("display", "none");
+
+        setTimeout(function() {
+            $(".hero-content").css("filter", "grayscale(0)");
+            $(".hero-content").css("color", "#f0f0f0");
+        }, 1000);
     }
 
     var portfolio_length = $('.portfolio-item').length;
@@ -75,4 +85,6 @@ $(function() {
         }); // ページトップスクロールの速さ。数字が大きいほど遅くなる
         return false; // リンク自体の無効化
     });
+
+
 });
