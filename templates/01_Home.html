@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <div id="loading"><p>Welcome to my site.</p></div> -->
+<main>
+    <h1>MACHiDA HAYATO</h1>
+    <section id="main_cont">
+        {% for item in items %}
+        <a href="{% url 'project' item.pk %}" class="cont">
+            <img style="background-attachment: fixed; background-image: url(/{{item.image_url}});">
+            <p>{{ item.description }}</p>
+        </a>
+        {% endfor %}
+    </section>
+</main>
+
+<!-- <div id="page_top"><a href="#"><p>Page Top</p></a></div> -->
+{% endblock content %}

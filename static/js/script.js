@@ -75,9 +75,19 @@ $(function() {
         }, 1000);
     }
 
-    var portfolio_length = $('.portfolio-item').length;
-    var portfolio_H = $('.portfolio-item').outerHeight();
-    $('#projects').css("height", portfolio_H * portfolio_length + 146 + "px");
+    var content_length = $('.cont').length;
+    var content_H = $('.cont').outerHeight(true);
+    var main_H = $('#main_cont').outerHeight(true);
+    if ($('body').outerWidth()<=767) {
+        $('main').css("height", main_H + 120 + "px");
+        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
+    } else if ($('body').outerWidth()>767 & $('body').outerWidth()<=1203) {
+        $('main').css("height", main_H + 460 + "px");
+        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
+    } else if ($('body').outerWidth()>1203) {
+        $('main').css("height", main_H + 600 + "px");
+        $('#main_cont').css("height", (content_H+10) * content_length + 120 + "px");
+    }
 
     $('#page-top a').click(function() {
         $('body,html').animate({
@@ -85,6 +95,22 @@ $(function() {
         }); // ページトップスクロールの速さ。数字が大きいほど遅くなる
         return false; // リンク自体の無効化
     });
-
-
 });
+
+$(window).resize(function(){
+    var content_length = $('.cont').length;
+    var content_H = $('.cont').outerHeight(true);
+    var main_H = $('#main_cont').outerHeight(true);
+    if ($('body').outerWidth()<=767) {
+        $('main').css("height", main_H + 120 + "px");
+        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
+    } else if ($('body').outerWidth()>767 & $('body').outerWidth()<=1203) {
+        $('main').css("height", main_H + 460 + "px");
+        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
+    } else if ($('body').outerWidth()>1203) {
+        $('main').css("height", main_H + 600 + "px");
+        $('#main_cont').css("height", (content_H+10) * content_length + 120 + "px");
+    }
+});
+
+

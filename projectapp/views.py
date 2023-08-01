@@ -7,7 +7,7 @@ from .forms import ContactForm
 
 def top_page_view(request):
     # トップページを表示するビュー関数
-    template_name = "top_page.html"
+    template_name = "01_Home.html"
     
     # ポートフォリオアイテムの一覧を取得
     items = models.Portfolio_Item.objects.all()

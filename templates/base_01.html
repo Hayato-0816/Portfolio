@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machida Hayato Portfolio</title>
+    <link rel="icon" href="../static/css/images/Logo.png">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+            <input type="checkbox" id="menu-btn-check">
+            <label for="menu-btn-check" class="menu-btn"><span>menu</span></label>
+            <div class="head_cont">
+                <div class="head_logo">
+                    <a href="">
+                        <img src="../static/css/images/Logo.png" alt="">
+                        <h1>MACHiDA HAYATO</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../#hero">Home</a></li>
+                        <li><a href="../#about">About</a></li>
+                        <li><a href="../#projects">Projects</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock content %}
+    <footer>
+        <p>© 2023 Machida Hayato Portfolio</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

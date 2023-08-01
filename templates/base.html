@@ -4,30 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオ</title>
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="Icon" href="../static/css/images/Icon.png">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
-<body>
+<body class="humb">
     <header>
-        <div class="head_cont">
-            <div class="head_logo">
-                <img src="../static/css/images/Logo.png" alt="">
-                <h1>MACHiDA HAYATO</h1>
+        <div class="icon">
+            <img src="../static/css/images/Icon.png" alt="">
+            <p>MACHiDA HAYATO</p>
+        </div>
+        <div>
+            <div class="nav_link">
+                <input type="checkbox" id="nav_check">
+                <label for="nav_check" class="navigation">
+                    <span></span>
+                </label>
+                <label for="nav_check" class="nav_menu">
+                    <div class="nav_back_01"></div>
+                </label>
+                <div class="nav_back_02"></div>
+                <nav>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Gallery</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="../#hero">Home</a></li>
-                    <li><a href="../#about">About</a></li>
-                    <li><a href="../#projects">Projects</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-                </ul>
-            </nav>
+        </div>
+        <div class="scroll">
+            <p>Scroll</p>
         </div>
     </header>
     {% block content %}
     {% endblock content %}
     <footer>
-        <p>© 2023 ポートフォリオ</p>
+        <p>@Machida Hayato</p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
