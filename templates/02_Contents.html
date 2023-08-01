@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <section id="main_cont">
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="portfolio-item" style="background-attachment: fixed; background-image: url(/{{item.image_url}});">
+                </div>
+                <div class="portfolio-text">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description | linebreaks }}</p>
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+
+{% endblock %}

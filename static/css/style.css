@@ -66,14 +66,6 @@ header{
 }
 
 /* navigation/////////////////////////////////////////////////////////////////////////// */
-.nav_link{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
 #nav_check{
     display: none;
 }
@@ -111,12 +103,12 @@ header{
 }
 #nav_check:checked ~ .navigation span::before {
     bottom: 0;
-    transform: rotate(45deg);
+    transform: rotate(405deg);
     background-color: #fff;
 }
 #nav_check:checked ~ .navigation span::after {
     top: 0;
-    transform: rotate(-45deg);
+    transform: rotate(-405deg);
     background-color: #fff;
 }
 /* hamburger/////////////////////////////////////////////////////////////////////////// */
@@ -124,14 +116,16 @@ header{
     display: none;
     flex-direction: column;
     transition: .2s ease;
+    z-index: 100;
 }
 
 .nav_link .nav_back_01{
     width: 100%;
     height: 100%;
     background: #e8e8e8;
-    position: absolute;
+    position: fixed;
     opacity: 60%;
+    z-index: 100;
 }
 .nav_link .nav_back_02{
     width: 100%;
@@ -142,6 +136,7 @@ header{
     right: -110vw;
     transition: .2s ease;
     opacity: 45%;
+    z-index: 110;
 }
 .nav_link nav{
     width: 100%;

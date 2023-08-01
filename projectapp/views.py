@@ -54,7 +54,7 @@ def contact_form_view(request):
 
 def project_page_view(request, pk):
     # プロジェクト詳細ページを表示するビュー関数
-    template_name = "project_page.html"
+    template_name = "02_Contents.html"
     
     # 指定されたIDに対応するポートフォリオアイテムを取得
     item = models.Portfolio_Item.objects.get(pk=pk)
