@@ -79,14 +79,27 @@ $(function() {
     var content_H = $('.cont').outerHeight(true);
     var main_H = $('#main_cont').outerHeight(true);
     if ($('body').outerWidth()<=767) {
+        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
         $('main').css("height", main_H + 120 + "px");
-        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
     } else if ($('body').outerWidth()>767 & $('body').outerWidth()<=1203) {
-        $('main').css("height", main_H + 460 + "px");
         $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
+        $('main').css("height", main_H + 460 + "px");
     } else if ($('body').outerWidth()>1203) {
-        $('main').css("height", main_H + 600 + "px");
         $('#main_cont').css("height", (content_H+10) * content_length + 120 + "px");
+        $('main').css("height", main_H + 600 + "px");
+    }
+
+    var project_H = $('.project').outerHeight(true);
+    var content_menu_H = $('#content_menu').outerHeight(true);
+    if ($('body').outerWidth()<=767) {
+        $('#content_menu').css("height", (project_H+10) + 40 + "px");
+        $('main').css("height", content_menu_H + 400 + "px");
+    } else if ($('body').outerWidth()>767 & $('body').outerWidth()<=1203) {
+        $('#content_menu').css("height", (project_H+10) + 40 + "px");
+        $('main').css("height", content_menu_H + 160 + "px");
+    } else if ($('body').outerWidth()>1203) {
+        $('#content_menu').css("height", (project_H+10) + 120 + "px");
+        $('main').css("height", content_menu_H + 400 + "px");
     }
 
     $('#page-top a').click(function() {
@@ -102,14 +115,14 @@ $(window).resize(function(){
     var content_H = $('.cont').outerHeight(true);
     var main_H = $('#main_cont').outerHeight(true);
     if ($('body').outerWidth()<=767) {
+        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
         $('main').css("height", main_H + 120 + "px");
-        $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
     } else if ($('body').outerWidth()>767 & $('body').outerWidth()<=1203) {
-        $('main').css("height", main_H + 460 + "px");
         $('#main_cont').css("height", (content_H+10) * content_length + 40 + "px");
+        $('main').css("height", main_H + 460 + "px");
     } else if ($('body').outerWidth()>1203) {
-        $('main').css("height", main_H + 600 + "px");
         $('#main_cont').css("height", (content_H+10) * content_length + 120 + "px");
+        $('main').css("height", main_H + 600 + "px");
     }
 });
 

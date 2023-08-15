@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Icon" href="../static/css/images/Icon.png">
     <title>Document</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="humb">
     <header>
         <a href="" class="icon">
-            <img src="../static/css/images/Icon.png" alt="">
+            <img src="{% static 'css/images/Icon.png' %}" alt="">
             <p>MACHiDA HAYATO</p>
         </a>
         <div>
@@ -34,9 +34,8 @@
                 </nav>
             </div>
         </div>
-        <div class="scroll">
-            <p>Scroll</p>
-        </div>
+        {% block scroll %}
+        {% endblock %}
     </header>
     {% block content %}
     {% endblock %}
