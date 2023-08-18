@@ -126,4 +126,44 @@ $(window).resize(function(){
     }
 });
 
+$(document).ready(function() {
+    var modals = $(".modal");
+    var btns = $(".openModalBtn");
+    var closeBtns = $(".close");
+  
+    btns.click(function() {
+      var modalId = $(this).data("modal");
+      $("#" + modalId).css("display", "block");
+    });
+  
+    closeBtns.click(function() {
+      modals.css("display", "none");
+    });
+  
+    $(window).click(function(event) {
+      if (event.target.classList.contains("modal")) {
+        modals.css("display", "none");
+      }
+    });
+});
 
+$(document).ready(function() {
+    var modal = $("#myModal");
+    var btn = $("#openModalBtn");
+    var closeBtn = $(".close");
+  
+    btn.click(function() {
+      modal.css("display", "block");
+    });
+  
+    closeBtn.click(function() {
+      modal.css("display", "none");
+    });
+  
+    $(window).click(function(event) {
+      if (event.target === modal[0]) {
+        modal.css("display", "none");
+      }
+    });
+  });
+  
