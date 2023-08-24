@@ -8,18 +8,20 @@
 <!-- <div id="loading"><p>Welcome to my site.</p></div> -->
 <main>
     <h1>MACHiDA HAYATO</h1>
-    <section id="main_cont">
+    <section id="works">
         {% for item in items %}
-        <div class="cont openModalBtn" data-modal="modal{{ item.pk }}">
+        <a href="/{{item.url}}" class="cont openModalBtn" data-modal="modal{{ item.pk }}">
             <img src="/{{item.image_url}}" style="background-image: url(/{{item.image_url}});">
-        </div>
-        <div id="modal{{ item.pk }}" class="modal">
+        </a>
+        <!-- <div id="modal{{ item.pk }}" class="modal">
             <div class="modal-content">
-              <span class="close">&times;</span>
-              <p>This is Modal {{ item.pk }}.</p>
-              <p>{{ item.description }}</p>
+                <span class="close">&times;</span>
+                <div class="modalMain">
+                    <p>This is Modal {{ item.pk }}.</p>
+                    <p>{{ item.description }}</p>
+                </div>
             </div>
-        </div>
+        </div> -->
         {% endfor %}
     </section>
 </main>

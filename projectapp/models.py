@@ -4,6 +4,7 @@ from django.db import models
 class Portfolio_Item(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    url = models.URLField(blank=True)
     image_url = models.ImageField(upload_to='media/')
     created_at = models.DateTimeField(auto_now_add=True)
 

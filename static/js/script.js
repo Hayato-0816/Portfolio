@@ -79,26 +79,6 @@ $(function() {
     }
 //#endregion
 
-//#region content hight
-var content_length = $('.cont').length;
-var content_H = $('.cont').outerHeight(true);
-
-if ($('body').innerWidth()<=750) {
-    $('#main_cont').css("height", ((content_H+20) * content_length) + 40 + "px");
-    var main_H = $('#main_cont').outerHeight(true);
-    $('main').css("height", main_H + 120 + "px");
-} else if ($('body').innerWidth()>750 & $('body').innerWidth()<=1185) {
-    $('#main_cont').css("height", ((content_H+10) * content_length) + 40 + "px");
-    var main_H = $('#main_cont').outerHeight(true);
-    $('main').css("height", main_H + 470 + "px");
-} else if ($('body').innerWidth()>1185) {
-    $('#main_cont').css("height", ((content_H) * Math.ceil(content_length/3)) + 102 + "px");
-    console.log(Math.ceil(content_length/3))
-    var main_H = $('#main_cont').outerHeight(true);
-    $('main').css("height", main_H + 610 + "px");
-}
-//#endregion
-
 //#region scroll top
     $('#page-top a').click(function() {
         $('body,html').animate({
@@ -109,61 +89,87 @@ if ($('body').innerWidth()<=750) {
 //#endregion
 
 //#region modal window
-    var modals = $(".modal");
-    var btns = $(".openModalBtn");
-    var closeBtns = $(".close");
+    $(".openModalBtn").click(function() {
+        var PosY = $(window).scrollTop();
+		var Link = $(this).attr('href');
+		
+		// スクロール値を代入
+		$('body').addClass('Fixed').css({'top': (-PosY) + 'px'});
+		$.cookie('ModalPos', PosY, {path:'/'});
+				
+		// iframeを読み込む
+		$('main').append('<section id="ModalWindow"></section>');
+		$('#ModalWindow').html('<div id="Loading"></div><iframe src="' + Link + '" frameborder="0" marginWidth="0" marginHeight="0" scrolling="auto"></iframe>').fadeIn(300);
+		// $('#ModalWindow iframe').css({
+		// 	'width': $(window).width() - 40,
+		// 	'height': $(window).height() - 40
+		// 	});
+		
+		// 表示外領域をクリックしたら
+		$('#ModalWindow').click(function(){
+			$('body').removeClass('Fixed');
+			$(window).scrollTop(PosY);
+			
+			$(this).fadeOut(300, function(){
+				$.cookie('ModalPos','', {path:'/' , expires:-1});
+				$(this).remove();
+				});
+			});
+			
+		return false;
+    });
   
-    btns.click(function() {
-      var modalId = $(this).data("modal");
-      $("#" + modalId).css("display", "block");
-    });
-    closeBtns.click(function() {
-      modals.css("display", "none");
-    });
-    $(window).click(function(event) {
-      if (event.target.classList.contains("modal")) {
-        modals.css("display", "none");
-      }
-    });
+    // $(".close").click(function() {
+    //     // クリックしたモーダルを非表示にする
+    //     modals.hide();
+    // });
+  
+    // $(window).click(function(event) {
+    //     // クリックした要素がモーダルの場合、非表示にする
+    //     if (event.target.classList.contains("modal")) {
+    //         modals.hide();
+    //     }
+    // });
 
-    var modal = $("#myModal");
-    var btn = $("#openModalBtn");
-    var closeBtn = $(".close");
-  
-    btn.click(function() {
-      modal.css("display", "block");
-    });
-    closeBtn.click(function() {
-      modal.css("display", "none");
-    });
-    $(window).click(function(event) {
-      if (event.target === modal[0]) {
-        modal.css("display", "none");
-      }
-    });
 //#endregion
 });
 
 
-$(window).resize(function(){
 //#region content hight
 var content_length = $('.cont').length;
 var content_H = $('.cont').outerHeight(true);
 
-if ($('body').innerWidth()<=750) {
-    $('#main_cont').css("height", ((content_H+20) * content_length) + 40 + "px");
-    var main_H = $('#main_cont').outerHeight(true);
-    $('main').css("height", main_H + 120 + "px");
-} else if ($('body').innerWidth()>750 & $('body').innerWidth()<=1185) {
-    $('#main_cont').css("height", ((content_H+10) * content_length) + 40 + "px");
-    var main_H = $('#main_cont').outerHeight(true);
-    $('main').css("height", main_H + 470 + "px");
-} else if ($('body').innerWidth()>1185) {
-    $('#main_cont').css("height", ((content_H) * Math.ceil(content_length/3)) + 102 + "px");
-    console.log(Math.ceil(content_length/3))
-    var main_H = $('#main_cont').outerHeight(true);
-    $('main').css("height", main_H + 610 + "px");
-}
-//#endregion
+$(function() {
+    // load時に処理
+    var win_width = $(window).innerWidth();
+
+    if (win_width <= 750) {
+        $('#works').css("height", ((content_H + 20) * content_length) + 40 + "px");
+        $('main').css("height", $('#works').outerHeight(true) + 120 + "px");
+    } else if (win_width > 750 && win_width <= 1185) {
+        $('#works').css("height", ((content_H + 10) * content_length) + 40 + "px");
+        $('main').css("height", $('#works').outerHeight(true) + 470 + "px");
+    } else if (win_width > 1185) {
+        $('#works').css("height", ((content_H) * Math.ceil(content_length / 3)) + 102 + "px");
+        console.log(Math.ceil(content_length/3))
+        $('main').css("height", $('#works').outerHeight(true) + 610 + "px");
+    }
 });
-  
+
+$(window).resize(function() {
+    // resize時に処理
+    var win_width = $(this).innerWidth();
+
+    if (win_width <= 750) {
+        $('#works').css("height", ((content_H + 20) * content_length) + 40 + "px");
+        $('main').css("height", $('#works').outerHeight(true) + 120 + "px");
+    } else if (win_width > 750 && win_width <= 1185) {
+        $('#works').css("height", ((content_H + 10) * content_length) + 40 + "px");
+        $('main').css("height", $('#works').outerHeight(true) + 470 + "px");
+    } else if (win_width > 1185) {
+        $('#works').css("height", ((content_H) * Math.ceil(content_length / 3)) + 102 + "px");
+        console.log(Math.ceil(content_length/3))
+        $('main').css("height", $('#works').outerHeight(true) + 610 + "px");
+    }
+});
+//#endregion
